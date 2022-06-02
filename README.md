@@ -3,11 +3,9 @@ Notepad这是一个开源的网络记事本项目，这基于Minimalist-Web-Note
 
 请参阅 https://nihaotang.com
 
-在同一个平台上平时只需要记住后缀就可以了，如这里的hello。
+在同一个平台上平时只需要记住后缀就可以了。
 
 
-
- 
 
 安装
 在index.php文件顶部，更改$base_url变量以指向您的站点。
