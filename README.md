@@ -1,58 +1,38 @@
-# Minimalist Web Notepad
+​
+Notepad这是一个开源的网络记事本项目，这基于Minimalist-Web-Notepad项目，能够在每次打开的时候，提供一个独特的网址，用来临时保存文本内容，只要知道这个网址，就能在其他地方浏览到这些文本内容。
 
-This is an open source clone of notepad.cc, which is now defunct.
+请参阅 https://nihaotang.com
 
-See demo at https://notes.orga.cat or https://notes.orga.cat/whatever.
+在同一个平台上平时只需要记住后缀就可以了，如这里的hello。
 
-## Installation
 
-At the top of `index.php` file, change `$base_url` variable to point to your
-site.
 
-Make sure the web server is allowed to write to the `_tmp` directory.
+ 
 
-### On Apache
+安装
+在index.php文件顶部，更改$base_url变量以指向您的站点。
 
-You may need to enable mod_rewrite and set up `.htaccess` files in your site configuration.
-See [How To Set Up mod_rewrite for Apache](https://www.digitalocean.com/community/tutorials/how-to-set-up-mod_rewrite-for-apache-on-ubuntu-14-04).
+确保允许 Web 服务器写入_tmp目录。
 
-### On Nginx
+在Apache
+.htaccess您可能需要启用 mod_rewrite 并在站点配置中设置文件。请参阅如何为 Apache 设置 mod_rewrite。
 
-To enable URL rewriting, put something like this in your configuration file:
+在 Nginx 上
+要启用 URL 重写，请在配置文件中添加如下内容：
 
-If the project resides in the root directory:
+如果项目位于根目录中：
+
+​
 ```
 location / {
     rewrite ^/([a-zA-Z0-9_-]+)$ /index.php?note=$1;
 }
 ```
 
-If the project resides in a subdirectory:
+如果项目位于子目录中：
 ```
 location ~* ^/notes/([a-zA-Z0-9_-]+)$ {
     try_files $uri /notes/index.php?note=$1;
 }
 ```
 
-## Branches
-
-To install it with Docker see the [docker](https://github.com/pereorga/minimalist-web-notepad/tree/docker) branch.
-
-A version that allows for encryption using the Web Crypto API is available at the [encryption](https://github.com/pereorga/minimalist-web-notepad/tree/encryption) branch.
-
-
-## Copyright and license
-
-Copyright 2012 Pere Orga <pere@orga.cat>
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this work except in compliance with the License.
-You may obtain a copy of the License at:
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
